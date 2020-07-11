@@ -2,10 +2,18 @@ body {
   background-color: whitesmoke;
 }
 
-.jumbotron {
-    background-image: url("../assets/images/news.jpg");
+.jumbotron-fluid {
     height: 450px;
     text-shadow: 2px 2px black;
+    width: 100%;
+}
+
+.bImage {
+    background-image: url("../assets/images/news.jpg");
+    background-repeat: repeat-x;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100%;
 }
 
 #wrapper {
