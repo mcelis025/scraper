@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Scraping With Mongoose</title>
-    <style>
-      body { background-color: #F2F6D0 }
-      #wrapper {
-        width: 960px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 5%;
-      }
-      #articles {
-        display: inline-block;
-        overflow: auto;
-        width: 60%;
-        height: 700px;
-      }
-      #notes {
-        float: right;
-        width: 30%;
-      }
-      textarea, input {
-        display: block;
-        width: 100%;
-        background-color: #FCF5C7;
-      }
-      input {
-        height: 36px;
-        font-size: 24px;
-      }
-      textarea {
-        height: 200px;
-        font-size: 18px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="wrapper">
-      <h1>Note Scraper</h1>
-      <h2><i>If you can do this...the homework should be no problem.</i></h2>
-      <div id="articles"></div>
-      <div id="notes"></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/sytle.css">
+  <title>Scraper</title>
+
+</head>
+
+<body>
+
+  <div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <h2 class="text-light pr-2">SCRAPER</h2>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Saved Articles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-danger">Scrape New Articles</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="jumbotron text-center pb-5 pt-5">
+    <h1 class="pt-5 text-light display-1">Scraper</h1>
+    <h3 class="text-light display-4">Extra! Extra! Read All About It!</h3>
+  </div>
+
+  <div id="wrapper">
+    <h1>Articles Scraped</h1>
+    <h2><i>Check Out Scraped Articles</i></h2>
+    <div id="articles"></div>
+    <div id="notes"></div>
+  </div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
 </html>
