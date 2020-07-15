@@ -10,7 +10,7 @@ body {
 
 .bImage {
     background-image: url("../assets/images/news.jpg");
-    background-repeat: repeat-x;
+    background-repeat: repeat-x repeat-y;
     background-position: center;
     background-attachment: fixed;
     background-size: 100%;
