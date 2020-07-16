@@ -36,9 +36,6 @@ app.get('/saved', function (req, res) {
   res.render('saved', {layout: 'index'});
 });
 
-app.get('/*', function (req, res) {
-    res.render('error', {layout: 'index'});
-});
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
@@ -58,10 +55,10 @@ app.get("/scrape", function(req, res) {
         .text()
       result.link = $(this)
         .children("a")
-        .attr("href");
+        .attr("href")
       result.summary = $(this)
         .children("p")
-        .text()
+        .text();
 
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)

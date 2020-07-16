@@ -4,10 +4,11 @@ $.getJSON("/articles", function(data) {
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
     $("#articles").append("<br><h4 data-id='" + data[i]._id + "'>" + data[i].title + "</h4>" + "<p>" + data[i].summary + "</p>" + "<a target='_blank' href='" + data[i].link + "'>" + data[i].link + "</a>" + "<br>" + "<button class='mt-2 btn btn-danger'> + FAVORITES </button>" + "<br><br />" );
+    console.log(data[i].summary)
   }
 });
 
-// Whenever someone clicks a p tag
+// Whenever someone clicks a h4 tag
 $(document).on("click", "h4", function() {
   // Empty the notes from the note section
   $("#notes").empty();
@@ -68,4 +69,13 @@ $(document).on("click", "#savenote", function() {
   // Also, remove the values entered in the input and textarea for note entry
   $("#titleinput").val("");
   $("#bodyinput").val("");
+});
+
+$(document).on('click', "#scrape", function (event) {
+  event.preventDefault();
+
+  $.get("/scrape", function () {
+    alert("Scraped for new articles!");
+    location.reload();
+  });
 });
