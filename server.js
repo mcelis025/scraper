@@ -23,11 +23,13 @@ mongoose.connect(MONGODB_URI);
 // Routes
 
 // Handlebars
-app.engine('handlebars', exphbs());
+app.engine('handlebars', exphbs({
+  layoutsDir: `${__dirname}/views/layouts`
+}));
 app.set('view engine', 'handlebars');
  
 app.get('/', function (req, res) {
-    res.render('home');
+    res.render('main', {layout: 'index'});
 });
 
 // A GET route for scraping the echoJS website
