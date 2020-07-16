@@ -3,7 +3,7 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<br><h4 data-id='" + data[i]._id + "'>" + data[i].title + "</h4>" + "<a target='_blank' href='" + data[i].link + "'>" + data[i].link + "</a>" + "<br>" + "<button class='mt-2 btn btn-danger'> + FAVORITES </button>" + "<br><br />" );
+    $("#articles").append("<br><h4 data-id='" + data[i]._id + "'>" + data[i].title + "</h4>" + "<p>" + data[i].summary + "</p>" + "<a target='_blank' href='" + data[i].link + "'>" + data[i].link + "</a>" + "<br>" + "<button class='mt-2 btn btn-danger'> + FAVORITES </button>" + "<br><br />" );
   }
 });
 
@@ -23,9 +23,9 @@ $(document).on("click", "h4", function() {
     .then(function(data) {
       console.log(data);
       // The title of the article
-      $("#notes").append("<h2>" + data.title + "</h2>");
+      $("#notes").append("<h4>" + data.title + "</h4>");
       // An input to enter a new title
-      $("#notes").append("<input id='titleinput' name='title' placeholder='Title'>");
+      $("#notes").append("<input id='titleinput' name='title' placeholder='Note Title'>");
       // A textarea to add a new note body
       $("#notes").append("<textarea placeholder='Enter Note' class='mt-2' id='bodyinput' name='body'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
