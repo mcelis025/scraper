@@ -36,6 +36,10 @@ app.get('/saved', function (req, res) {
   res.render('saved', {layout: 'index'});
 });
 
+app.get('/*', function (req, res) {
+    res.render('error', {layout: 'index'});
+});
+
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
@@ -44,7 +48,7 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article h2 p").each(function(i, element) {
+    $("article h2").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
@@ -54,7 +58,7 @@ app.get("/scrape", function(req, res) {
         .text()
       result.link = $(this)
         .children("a")
-        .attr("href")
+        .attr("href");
       result.summary = $(this)
         .children("p")
         .text()
