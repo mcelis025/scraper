@@ -18,10 +18,9 @@ app.use(express.static("public"));
 
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articleScraper";
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Routes
-
 // Handlebars
 app.engine('handlebars', exphbs({
   layoutsDir: `${__dirname}/views/layouts`
@@ -35,7 +34,6 @@ app.get('/', function (req, res) {
 app.get('/saved', function (req, res) {
   res.render('saved', {layout: 'index'});
 });
-
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
@@ -57,6 +55,7 @@ app.get("/scrape", function(req, res) {
         .children("a")
         .attr("href")
       result.summary = $(this)
+        .parent()
         .children("p")
         .text();
 
@@ -120,6 +119,19 @@ app.post("/articles/:id", function(req, res) {
     .then(function(dbArticle) {
       // If we were able to successfully update an Article, send it back to the client
       res.json(dbArticle);
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
+app.get("/favorites", function(req, res) {
+  // Grab every document in the Articles collection
+  db.Favorites.find({})
+    .then(function(dbFavorites) {
+      // If we were able to successfully find Articles, send them back to the client
+      res.json(dbFavorites);
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
