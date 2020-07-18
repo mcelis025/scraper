@@ -104,11 +104,37 @@ $(document).on("click", "#scrape", function (event) {
   });
 });
 
-$(document).on("click", "#favBtn", function (event) {
-  event.preventDefault();
+// $(document).on("click", "#favBtn", function (event) {
+//   event.preventDefault();
 
-  $.get("/favorites", function () {
-    alert("Added to Favorites!");
-    location.reload();
-  });
-});
+//   $.get("#articles", function () {
+//     alert("Added To Favorites");
+//     location.reload();
+//     fav = true;
+//   });
+  
+// });
+
+// $(document).on("click", "#removeBtn", function (event) {
+//   event.preventDefault();
+
+//   $.get("#articles", function () {
+//     alert("Added To Favorites");
+//     location.reload();
+//     fav = true;
+//   });
+// });
+
+// function handleArticleSave() {
+//   var favArt = $(this).parents().data();
+  
+//   favArt.fav = true;
+//   $.ajax({
+//     method: 'PUT',
+//     url: '/api/articleScraper/' + favArt._id,
+//     data: favArt
+//   }).then(function (data) {
+//     if (data.fav){
+//     }
+//   });
+// }
