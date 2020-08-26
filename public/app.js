@@ -17,9 +17,7 @@ $.getJSON("/articles", function (data) {
         "'>" +
         data[i].link +
         "</a>" +
-        "<br>" +
-        "<button id='favBtn' class='mt-2 btn btn-danger'> + FAVORITES </button>" +
-        "<br><br />"
+        "<br>-------------------------------------<br />"
     );
   }
 });
